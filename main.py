@@ -95,8 +95,8 @@ class Punch:
                 if res.status_code == 200:
                     self.wechatNotice("打卡成功")
                     return "打卡成功"
-                elif retryCnt == 3:
-                    logging.critical("提交表单失败")
+                elif retryCnt == 2:
+                    logging.critical("提交表单失败,{}".format(res.text))
                     self.wechatNotice("打卡失败，{}".format(res.text))
             except Exception as e:
                 if retryCnt < 2:
