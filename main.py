@@ -17,7 +17,7 @@ class Punch:
 
     def __init__(self):
         self.un = os.environ["SCHOOL_ID"].strip()  # 学号
-        print("打卡学号"+self.un)
+        logging.info("打卡学号"+self.un)
         self.pd = os.environ["PASSWORD"].strip()  # 密码
         self.SCKey = os.environ["SCKEY"]
 
@@ -124,7 +124,7 @@ class Punch:
                 logging.error("{} 推送服务配置错误".format(e.__class__))
 
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 if __name__ == '__main__':
     punch = Punch()
     punch.login()
